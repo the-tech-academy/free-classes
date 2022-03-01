@@ -1,48 +1,44 @@
+#Rock, paper and scissors game in Python
 from random import randint
-
-choices = ["Rock", "Paper", "Scissors"]
-
+choices = ["rock", "paper", "scissors"]
 playGame = True
 
 while playGame == True:
-    
-    computer = choices[randint(0,2)].lower()
-    player = input("Rock, Paper, or Scissors?: ").lower()
+    computer = choices[randint(0,2)]
+    player = input("Choose rock, paper, or scissors?: ").lower()
     
     if computer == player:
         print("Tie!")
         
     elif player == "rock":
-        
-        if computer == "paper":
-            print("You lose", computer, "covers", player)
-
+        if computer == "scissors":
+            print("You win! Rock smashes scissors.")
         else:
-            print("You win!", player, "smashes", computer)
+            print("You lose. Paper covers rock.")
 
     elif player == "paper":
-
-        if computer == "scissors":
-            print("You lose", computer, "cuts", player)
-
+        if computer == "rock":
+            print("You win! Paper covers rock.")
         else:
-            print("You win!", player, "covers", computer)
+            print("You lose. Scissors cut paper.")
 
     elif player == "scissors":
-
-        if computer == "rock":
-            print("You lose", computer, "smashes", player)
-
+        if computer == "paper":
+            print("You win! Scissors cut paper.")
         else:
-            print("You win!", player, "cuts", computer)
-
+            print("You lose. Rock smashes scissors.")
     
     else:
-        print("That's not a valid play. Check your spelling and try again.")
+        print("Not a valid play. Check your spelling and try again.")
+        continue
         
-    keepPlaying = input("Would you like to play again? yes/no: ").lower()
+    keepPlaying = input("Play again? ").lower()
 
     if keepPlaying == "no":
         playGame = False
         print("Thanks for playing!")
+    elif keepPlaying == "yes":
+        playGame = True
+    else:
+        print("Not a valid play. Please type 'yes' or 'no'.")
     
