@@ -4,6 +4,7 @@ choices = ["rock", "paper", "scissors"]
 playGame = True
 
 while playGame == True:
+    
     computer = choices[randint(0,2)]
     player = input("Choose rock, paper, or scissors?: ").lower()
     
@@ -33,12 +34,14 @@ while playGame == True:
         continue
         
     keepPlaying = input("Play again? ").lower()
-
+    
     if keepPlaying == "no":
         playGame = False
         print("Thanks for playing!")
+        
     elif keepPlaying == "yes":
         playGame = True
+        
     else:
         print("Not a valid play. Please type 'yes' or 'no'.")
     
