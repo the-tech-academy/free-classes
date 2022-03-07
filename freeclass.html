@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--<meta name="viewport" content="width=device-width">-->
+	<title>Rock, Paper, Scissors</title>
+</head>
+<body>
+
+<h1>Rock, Paper, Scissors</h1>
+
+	<script>
+	var userChoice = prompt("Choose rock, paper, or scissors.").toLowerCase();
+	
+	if (! userChoice) {
+		document.write("<p>Player: Refresh and try again.</p>");
+	}
+	else if (userChoice == "rock" || userChoice == "paper" || userChoice == "scissors") {
+		document.write("<p>Player: " + userChoice + "</p>");
+	}
+	else {
+		document.write("<p>Player: Not a valid play! Refresh and try again.</p>");
+	}
+	
+	var computerChoice = Math.random();
+	if (computerChoice < 0.34) {
+		computerChoice = "rock";
+	}
+	else if (computerChoice <= 0.67) {
+		computerChoice = "paper";
+	}
+	else {
+		computerChoice = "scissors";
+	}
+	
+	document.write("<p>Computer: " + computerChoice + "</p>");
+	
+	var compare = function(choice1, choice2) {
+		if (choice1 == choice2) {
+			return "It's a tie!";
+		}
+		if (choice1 == "rock") {
+			if (choice2 == "scissors") {
+				return "You win! Rock smashes scissors.";
+			}
+			else {
+				return "You lose! Paper covers rock.";
+			}
+		}
+		if (choice1 == "paper") {
+			if (choice2 == "rock") {
+				return "You win! Paper covers rock.";
+			}
+			else {
+				return "You lose! Scissors cut paper";
+			}
+		}
+		if (choice1 == "scissors") {
+			if (choice2 == "paper") {
+				return "You win! Scissors cut paper.";
+			}
+			else {
+				return "You lose! Rock smashes scissors.";
+			}
+		}
+	};
+	
+	var results = compare(userChoice, computerChoice);
+	document.write("<br><hr><br>" + results);
+</script>
+</body>
+</html>
