@@ -7,6 +7,7 @@ while playGame == True:
     
     computer = choices[randint(0,2)]
     player = input("Choose rock, paper, or scissors?: ").lower()
+    print("Computer chose",computer)
     
     if computer == player:
         print("Tie!")
